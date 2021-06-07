@@ -139,7 +139,8 @@ Superuser created successfully.
 
 打开./mysite/mysite/settings.py，将应用添加到数组 INSTALLED_APPS 数组中，应用才能够被使用。
 
-![01-01](E:\git\Django\pictures\01-01.png)
+![01-01](https://img-blog.csdnimg.cn/20210607213250562.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 插入之后，需要使用命令生成迁移文件：
 
@@ -169,21 +170,24 @@ Running migrations:
 
 使用命令`python3 manage.py runserver [端口号]`运行，此时可以在浏览器输入`127.0.0.1:端口号`查看运行结果。
 
-![01-02](E:\git\Django\pictures\01-02.png)
+![01-02](https://img-blog.csdnimg.cn/20210607213310140.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 进入`127.0.0.1:端口号/admin`可以进入超级管理员的登录界面。
 
 在此可以增加删除博文。
 
-![01-03](E:\git\Django\pictures\01-03.png)
+![01-03](https://img-blog.csdnimg.cn/20210607213323542.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 ## 七、其他
 
 在./mysite/mysite/settings.py中可以设置界面中文及时区：
 
-![01-04](E:\git\Django\pictures\01-04.png)
+![01-04](https://img-blog.csdnimg.cn/2021060721334642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 设置博客分类可以显示：
 
-![01-05](E:\git\Django\pictures\01-05.png)
+![01-05](https://img-blog.csdnimg.cn/20210607213506947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
 
