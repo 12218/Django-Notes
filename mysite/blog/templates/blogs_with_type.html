@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ blog_type.type_name }}</title>
-</head>
-<body>
-    <div>
-        <a href="{% url 'blogs_with_type' blog_type.pk %}"> <!--  此处的'home'是url的name为home的链接 -->
-            <h2>博客分类：{{ blog_type.type_name }}</h2>
-        </a>
-    </div>
-    <hr>
-    <p>共有{{ blogs|length }}篇博客</p> <!-- 过滤器 -->
+{% extends 'base.html'%} <!-- 声明引用模板 -->
+
+{% block title %}
+    {{ blog_type.type_name }}
+{% endblock %}
+
+{% block content %}
+<div>
+    <a href="{% url 'blogs_with_type' blog_type.pk %}"> <!--  此处的'home'是url的name为home的链接 -->
+        <h2>博客分类：{{ blog_type.type_name }}</h2>
+    </a>
+</div>
+<hr>
+<p>共有{{ blogs|length }}篇博客</p> <!-- 过滤器 -->
     {% for blog in blogs %} <!-- 这里的blog是从views.py中传入的内容 -->
         <a href="{% url 'blog_detail' blog.pk %}">
             <h3>{{ blog.title }}</h3>
@@ -25,5 +23,4 @@
         {% empty %} <!-- 如果为空则执行下面代码 -->
         <p>--暂无博客，敬请期待--</p>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
