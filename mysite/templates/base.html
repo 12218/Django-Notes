@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -5,14 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title> <!-- 使用block和endblock作为嵌套的代码块开始结束标志, block后面的title是代码块名称 -->
+    <!-- <link rel="stylesheet" href="/static/css/base.css"> -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block header_extends %}{% endblock %} <!-- head拓展模块 -->
 </head>
 <body>
-    <div>
-        <a href="{% url 'home' %}">
-            <h1>我的博客网站</h1>
+    <div class="nav">
+        <a class="logo" href="{% url 'home' %}">
+            <h3>我的博客网站</h3>
         </a>
+        <a href="/">首页</a>
+        <a href="/blog">博客</a>
     </div>
-    <hr>
     {% block content %}{% endblock %} <!-- 内容代码块 -->
 </body>
 </html>
