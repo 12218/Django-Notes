@@ -1,8 +1,12 @@
-body, * {
+* {
     margin: 0;
     padding: 0;
 }
-div.nav {
+
+body {
+    margin-top: 70px!important;
+}
+/* div.nav {
     background-color: #eee;
     border-bottom: 2px solid #ccc;
 }
@@ -13,4 +17,4 @@ div.nav a{
 }
 div.nav a.logo {
     display: inline-block;
-}
+} */

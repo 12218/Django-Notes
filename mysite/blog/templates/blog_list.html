@@ -4,6 +4,10 @@
     我的网站
 {% endblock %}
 
+{% block nav_blog_active %}
+active
+{% endblock %}
+
 {% block content %}
     <p>共有{{ blogs|length }}篇博客</p> <!-- 过滤器 -->
     {% for blog in blogs %} <!-- 这里的blog是从views.py中传入的内容 -->

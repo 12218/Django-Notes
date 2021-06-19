@@ -4,6 +4,10 @@
     {{ blog_type.type_name }}
 {% endblock %}
 
+{% block nav_blog_active %}
+active
+{% endblock %}
+
 {% block content %}
 <div>
     <a href="{% url 'blogs_with_type' blog_type.pk %}"> <!--  此处的'home'是url的name为home的链接 -->
