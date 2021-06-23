@@ -1,4 +1,4 @@
-{% extends 'base.html'%} <!-- 声明引用模板 -->
+{% extends 'blog_list.html'%} <!-- 声明引用模板 -->
 
 {% block title %}
     {{ blog_type.type_name }}
@@ -8,23 +8,5 @@
 active
 {% endblock %}
 
-{% block content %}
-<div>
-    <a href="{% url 'blogs_with_type' blog_type.pk %}"> <!--  此处的'home'是url的name为home的链接 -->
-        <h2>博客分类：{{ blog_type.type_name }}</h2>
-    </a>
-</div>
-<hr>
-<p>共有{{ blogs|length }}篇博客</p> <!-- 过滤器 -->
-    {% for blog in blogs %} <!-- 这里的blog是从views.py中传入的内容 -->
-        <a href="{% url 'blog_detail' blog.pk %}">
-            <h3>{{ blog.title }}</h3>
-        </a>
-        <p>作者：{{ blog.author }}</p>
-        <p>修改时间：{{ blog.last_updated_time|date:"Y-m-d G:i:s" }}</p>
-        <p>博客类型：{{ blog.blog_type }}</p>
-        <p>{{ blog.content|truncatechars:30 }}</p> <!-- 其中冒号后面的内容表示显示字符长度 -->
-        {% empty %} <!-- 如果为空则执行下面代码 -->
-        <p>--暂无博客，敬请期待--</p>
-    {% endfor %}
-{% endblock %}
+{% block block_list_title %}分类: {{ blog_type.type_name }}——共有{{ blogs|length }}篇博客{% endblock %}
+

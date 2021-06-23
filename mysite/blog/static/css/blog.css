@@ -1,0 +1,40 @@
+ul.blog-types {
+    list-style-type: none;
+}
+
+div.blog:not(:last-child) {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #ccc;
+}
+
+div.blog h3 {
+    margin-top: 0.5em;
+}
+
+p.blog-author {
+    display: inline-block;
+}
+
+p.blog-time {
+    display: inline-block;
+}
+
+p.blog-category {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+ul.blog-detail-info {
+    list-style-type: none;
+    margin-bottom: 2em;
+}
+
+ul.blog-detail-info li{
+    display: inline-block;
+    margin-right: 2em;
+}
+
+div.blog-content {
+    text-indent: 2em; /* 首行缩进2字符 */
+}

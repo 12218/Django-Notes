@@ -14,7 +14,8 @@
 |  02  | [模板标签和过滤器](https://github.com/12218/Django-Notes/blob/main/02--Django%E7%AC%94%E8%AE%B0--%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE%E5%92%8C%E8%BF%87%E6%BB%A4%E5%99%A8.md) | 2021.06.10 |
 |  03  | [模板嵌套](https://github.com/12218/Django-Notes/blob/main/03--Django%E7%AC%94%E8%AE%B0--%E6%A8%A1%E6%9D%BF%E5%B5%8C%E5%A5%97.md) | 2021.06.11 |
 |  04  | [CSS页面美化](https://github.com/12218/Django-Notes/blob/main/04--Django笔记--CSS页面美化.md) | 2021.06.12 |
-|  05  | [CSS框架协助前端布局](https://github.com/12218/Django-Notes/blob/main/04--Django笔记--CSS页面美化.md) | 2021.06.19 |
+|  05  | [CSS框架协助前端布局](https://github.com/12218/Django-Notes/blob/main/05--Django笔记--CSS框架协助前端布局.md) | 2021.06.19 |
+|  06  | [Bootstrap响应式布局](https://github.com/12218/Django-Notes/blob/main/06--Django笔记--Bootstrap响应式布局.md) | 2021.06.23 |
 
 ## 3. 运行环境
 
