@@ -141,8 +141,25 @@ Superuser created successfully.
 
 ![01-01](https://img-blog.csdnimg.cn/20210607213250562.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
 
+之后对blog应用进行注册，在./mysite/mysite/blog/admin.py中添加这些内容:
 
-插入之后，需要使用命令生成迁移文件：
+```python
+from django.contrib import admin
+from .models import BlogType, Blog # 引入创建好的博客模型和博客分类
+
+# 在此进行博客模型的注册
+# Register your models here.
+@admin.register(BlogType)
+class BlogTypeAdmin(admin.ModelAdmin): # 注册博客分类
+    list_display = ('id', 'type_name') # 此处放入的值为在超级管理员界面显示的信息
+
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin): # 注册博客模型
+    list_display = ('title', 'blog_type', 'author', 'create_time', 'last_updated_time') # 此处放入的值为在超级管理员界面显示的信息
+```
+
+
+注册之后，需要使用命令生成迁移文件：
 
 ```bash
 (study) root@***:~/Program/Django/study/mysite# python3 manage.py makemigrations
