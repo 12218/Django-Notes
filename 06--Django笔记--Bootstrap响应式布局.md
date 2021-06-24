@@ -6,7 +6,8 @@
 
 Bootstrap 的栅格系统将网页分成12列，适配各种大小的屏幕
 
-![06-01](.\pictures\06-01.png)
+![06-01](https://img-blog.csdnimg.cn/20210623214622112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 且栅格系统需要被包裹在一个 `.container` 容器中
 
@@ -60,7 +61,8 @@ Bootstrap 的栅格系统将网页分成12列，适配各种大小的屏幕
 
 可以将博客布局进行初步处理
 
-![06-02](.\pictures\06-02.png)
+![06-02](https://img-blog.csdnimg.cn/20210623214639952.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 ## 二、组件
 
@@ -77,7 +79,8 @@ Bootstrap 的栅格系统将网页分成12列，适配各种大小的屏幕
 </div>
 ```
 
-![06-03](.\pictures\06-03.png)
+![06-03](https://img-blog.csdnimg.cn/20210623214657378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 ## 三、屏幕适配问题
 
@@ -87,7 +90,8 @@ Bootstrap 的栅格系统将网页分成12列，适配各种大小的屏幕
 
 而如果希望右边的博客分类模块在超小屏幕的时候隐藏，可以使用官网的[响应式工具](https://v3.bootcss.com/css/#responsive-utilities)
 
-![06-04](.\pictures\06-04.png)
+![06-04](https://img-blog.csdnimg.cn/20210623214722282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 ```html
 <div class="hidden-xs col-sm-3 col-md-4">  <!-- 博客分类部分 -->
@@ -114,4 +118,3 @@ div.blog:not(:last-child) {
     border-bottom: 2px solid #ccc;
 }
 ```
-

@@ -43,7 +43,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-![07-01](.\pictures\07-01.png)
+![07-01](https://img-blog.csdnimg.cn/20210624223128677.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 添加成功
 
@@ -71,11 +72,13 @@ Django中有自带的分页器
 
 首先对文章排序进行规定：
 
-![07-02](.\pictures\07-02.png)
+![07-02](https://img-blog.csdnimg.cn/20210624223152820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 然后对数据库进行迁移，使之生效。
 
-![07-03](.\pictures\07-03.png)
+![07-03](https://img-blog.csdnimg.cn/20210624223213439.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 博客会默认按照时间排序。
 
@@ -136,7 +139,8 @@ def blog_list(request): # 博客列表html界面的渲染
 {% for blog in page_of_blogs.object_list %}
 ```
 
-![07-04](.\pictures\07-04.png)
+![07-04](https://img-blog.csdnimg.cn/20210624223238735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMzODc4MA==,size_16,color_FFFFFF,t_70#pic_center)
+
 
 ### 三、设置html中的页码
 
@@ -169,4 +173,3 @@ def blog_list(request): # 博客列表html界面的渲染
     </ul>
 </div>
 ```
-
