@@ -19,9 +19,9 @@ active
             <div class="col-xs-12 col-sm-9 col-md-8">  <!-- 博客显示部分 -->
                 <div class="panel panel-primary">
                     <!-- <div class="panel-heading">博客列表——共有{{ blogs|length }}篇博客</div> -->
-                    <div class="panel-heading">{% block block_list_title %}博客列表——共有{{ blogs|length }}篇博客{% endblock %}</div>
+                    <div class="panel-heading">{% block block_list_title %}博客列表——共有{{ page_of_blogs.paginator.count|length }}篇博客{% endblock %}</div>
                     <div class="panel-body">
-                        {% for blog in blogs %} <!-- 这里的blog是从views.py中传入的内容 -->
+                        {% for blog in page_of_blogs.object_list %} <!-- 这里的blog是从views.py中传入的内容 -->
                             <div class="blog">
                                 <a href="{% url 'blog_detail' blog.pk %}">
                                     <h3>{{ blog.title }}</h3>
@@ -46,6 +46,31 @@ active
                             <h3>--暂无博客，敬请期待--</h3>
                         {% endfor %}
                     </div>
+                </div>
+                <div aria-label="Page navigation"> <!-- 页码设置 -->
+                    <ul class="pagination">
+                      <li>
+                            {% if page_of_blogs.has_previous %}
+                                <a href="?page={{ page_of_blogs.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            {% else %}
+                                <span aria-hidden="true">&laquo;</span>
+                            {% endif %}
+                      </li>
+                      {% for page_num in page_of_blogs.paginator.page_range %}
+                        <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                      {% endfor %}
+                      <li>
+                            {% if page_of_blogs.has_next %}
+                                <a href="?page={{ page_of_blogs.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            {% else %}
+                                <span aria-hidden="true">&raquo;</span>
+                            {% endif %}
+                      </li>
+                    </ul>
                 </div>
             </div>
             <div class="hidden-xs col-sm-3 col-md-4">  <!-- 博客分类部分 -->

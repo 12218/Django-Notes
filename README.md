@@ -16,6 +16,7 @@
 |  04  | [CSS页面美化](https://github.com/12218/Django-Notes/blob/main/04--Django笔记--CSS页面美化.md) | 2021.06.12 |
 |  05  | [CSS框架协助前端布局](https://github.com/12218/Django-Notes/blob/main/05--Django笔记--CSS框架协助前端布局.md) | 2021.06.19 |
 |  06  | [Bootstrap响应式布局](https://github.com/12218/Django-Notes/blob/main/06--Django笔记--Bootstrap响应式布局.md) | 2021.06.23 |
+|  07  | [分页和shell命令行模式](https://github.com/12218/Django-Notes/blob/main/07--Django笔记--分页和shell命令行模式.md) | 2021.06.24 |
 
 ## 3. 运行环境
 

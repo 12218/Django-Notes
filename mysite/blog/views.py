@@ -1,12 +1,21 @@
 # from mysite.blog.models import Blog
+from django.core import paginator
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator # 引入分页器
 from .models import Blog, BlogType
 # 渲染模板文件
 # Create your views here.
 
 def blog_list(request): # 博客列表html界面的渲染
+    blogs_all_list = Blog.objects.all() # 全部博客列表
+    paginator = Paginator(blogs_all_list, 10) # 分页，每10篇分一页
+
+    page_num = request.GET.get('page', 1) # request.GET得到get请求中的内容; 此处查看get请求中有没有page这个属性，没有则为1
+    page_of_blogs = paginator.get_page(page_num)
+
     context = {} # context字典为传入html渲染的内容
-    context['blogs'] = Blog.objects.all() # Blog.objects.all()为选择数据库中所有博客
+    # context['blogs'] = page_of_blogs.object_list() # 获取分页中的博客列表
+    context['page_of_blogs'] = page_of_blogs
     context['blog_types'] = BlogType.objects.all()
     # context['blogs_count'] = Blog.objects.all().count() # 获取博客数量
     return render(request, 'blog_list.html', context)
