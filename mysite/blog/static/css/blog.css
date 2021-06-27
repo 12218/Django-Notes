@@ -38,3 +38,7 @@ ul.blog-detail-info li{
 div.blog-content {
     text-indent: 2em; /* 首行缩进2字符 */
 }
+
+div.paginator {
+    text-align: center;
+}

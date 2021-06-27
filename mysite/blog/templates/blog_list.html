@@ -19,7 +19,7 @@ active
             <div class="col-xs-12 col-sm-9 col-md-8">  <!-- 博客显示部分 -->
                 <div class="panel panel-primary">
                     <!-- <div class="panel-heading">博客列表——共有{{ blogs|length }}篇博客</div> -->
-                    <div class="panel-heading">{% block block_list_title %}博客列表——共有{{ page_of_blogs.paginator.count|length }}篇博客{% endblock %}</div>
+                    <div class="panel-heading">{% block block_list_title %}博客列表{% endblock %}</div>
                     <div class="panel-body">
                         {% for blog in page_of_blogs.object_list %} <!-- 这里的blog是从views.py中传入的内容 -->
                             <div class="blog">
@@ -47,7 +47,7 @@ active
                         {% endfor %}
                     </div>
                 </div>
-                <div aria-label="Page navigation"> <!-- 页码设置 -->
+                <div class="paginator" aria-label="Page navigation"> <!-- 页码设置 -->
                     <ul class="pagination">
                       <li>
                             {% if page_of_blogs.has_previous %}
@@ -58,8 +58,16 @@ active
                                 <span aria-hidden="true">&laquo;</span>
                             {% endif %}
                       </li>
-                      {% for page_num in page_of_blogs.paginator.page_range %}
-                        <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                      {% for page_num in page_range %}
+                        {% if page_num == page_of_blogs.number %} <!-- 判断页码如果是当前页，则设置为高亮状态 -->
+                            <li class="active"><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% else %}
+                            {% if page_num == '...' %} <!-- 让省略号不可被点击 -->
+                                <li><span>{{ page_num }}</span></li>
+                            {% else %}
+                                <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                            {% endif %}
+                        {% endif %}
                       {% endfor %}
                       <li>
                             {% if page_of_blogs.has_next %}
@@ -71,6 +79,11 @@ active
                             {% endif %}
                       </li>
                     </ul>
+                    <p>
+                        共有{{ page_of_blogs.paginator.count }}篇博客
+                        当前第{{ page_of_blogs.number }}页
+                        共{{ page_of_blogs.paginator.num_pages }}页
+                    </p>
                 </div>
             </div>
             <div class="hidden-xs col-sm-3 col-md-4">  <!-- 博客分类部分 -->
