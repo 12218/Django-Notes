@@ -1,7 +1,7 @@
 {% extends 'base.html'%} <!-- 声明引用模板 -->
 
 {% block title %}
-    我的网站
+    我的网站|博客列表
 {% endblock %}
 
 {% load static %}
@@ -99,6 +99,20 @@ active
                                 </li>
                                 {% empty %}
                                     <li>没有分类</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">日期分类</div>
+                    <div class="panel-body">
+                        <ul class="blog-types">
+                            {% for blog_date in blog_dates %}
+                                <li>
+                                    <a href="{% url 'blogs_with_date' blog_date.year blog_date.month %}">
+                                        {{ blog_date|date:"Y年m月" }}
+                                    </a>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
