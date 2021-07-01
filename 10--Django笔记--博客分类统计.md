@@ -38,7 +38,8 @@ def get_blog_list_common_date(request, blogs_all_list):
 
 效果如下：
 
-![10-01](E:\git\Django\pictures\10-01.png)
+![10-01](https://img-blog.csdnimg.cn/20210701215522289.png#pic_center)
+
 
 ## 二、方式二
 
@@ -61,5 +62,3 @@ def get_blog_list_common_date(request, blogs_all_list):
     context['blog_types'] = blog_type_list
     ...
 ```
-
-也能达到同样的效果
