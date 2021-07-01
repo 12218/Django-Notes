@@ -94,7 +94,7 @@ active
                             {% for blog_type in blog_types %}
                                 <li>
                                     <a href="{% url 'blogs_with_type' blog_type.pk %}">
-                                        {{ blog_type.type_name }}
+                                        {{ blog_type.type_name }} ({{ blog_type.blog_count }})
                                     </a>
                                 </li>
                                 {% empty %}
