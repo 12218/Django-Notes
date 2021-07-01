@@ -19,6 +19,7 @@
 |  07  | [分页和shell命令行模式](https://github.com/12218/Django-Notes/blob/main/07--Django笔记--分页和shell命令行模式.md) | 2021.06.24 |
 |  08  | [分页优化展示](https://github.com/12218/Django-Notes/blob/main/08--Django笔记--分页优化展示.md) | 2021.06.27 |
 |  09  | [上下篇博客和按月分类](https://github.com/12218/Django-Notes/blob/main/09--Django笔记--上下篇博客和按月分类.md) | 2021.06.30 |
+|  10  | [博客分类统计](https://github.com/12218/Django-Notes/blob/main/10--Django%E7%AC%94%E8%AE%B0--%E5%8D%9A%E5%AE%A2%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1.md) | 2021.07.01 |
 
 ## 3. 运行环境
 
