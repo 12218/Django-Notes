@@ -20,13 +20,17 @@
 |  08  | [分页优化展示](https://github.com/12218/Django-Notes/blob/main/08--Django笔记--分页优化展示.md) | 2021.06.27 |
 |  09  | [上下篇博客和按月分类](https://github.com/12218/Django-Notes/blob/main/09--Django笔记--上下篇博客和按月分类.md) | 2021.06.30 |
 |  10  | [博客分类统计](https://github.com/12218/Django-Notes/blob/main/10--Django%E7%AC%94%E8%AE%B0--%E5%8D%9A%E5%AE%A2%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1.md) | 2021.07.01 |
+|  11  | [博客后台富文本编辑](https://github.com/12218/Django-Notes/blob/main/11--Django笔记--博客后台富文本编辑) | 2021.07.03 |
 
 ## 3. 运行环境
 
 - asgiref==3.3.4
 - Django==3.2.4
+- django-ckeditor==6.1.0
+- django-js-asset==1.2.2
+- Pillow==8.3.0
 - pytz==2021.1
 - sqlparse==0.4.1
 
-运行环境：[requirements.txt](https://github.com/12218/Django-Notes/blob/main/mysite/requirement.txt)
+运行环境：[requirements.txt](https://github.com/12218/Django-Notes/blob/main/mysite/requirements.txt)
 
