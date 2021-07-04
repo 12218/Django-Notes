@@ -14,14 +14,23 @@ div.blog h3 {
 
 p.blog-author {
     display: inline-block;
+    margin-right: 1em;
 }
 
 p.blog-time {
     display: inline-block;
+    margin-right: 1em;
 }
 
 p.blog-category {
     display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 0;
+}
+
+p.blog-readed-num {
+    display: inline-block;
+    margin-right: 1em;
     margin-bottom: 0;
 }
 

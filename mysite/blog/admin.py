@@ -9,4 +9,4 @@ class BlogTypeAdmin(admin.ModelAdmin): # 注册博客分类
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin): # 注册博客模型
-    list_display = ('title', 'blog_type', 'author', 'create_time', 'last_updated_time') # 此处放入的值为在超级管理员界面显示的信息
+    list_display = ('title', 'blog_type', 'author', 'readed_num','create_time', 'last_updated_time') # 此处放入的值为在超级管理员界面显示的信息

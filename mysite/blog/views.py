@@ -1,4 +1,5 @@
 # from mysite.blog.models import Blog
+from datetime import datetime
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator # 引入分页器
@@ -47,12 +48,19 @@ def get_blog_list_common_date(request, blogs_all_list):
     return context
 
 def blog_detail(request, blog_pk): # 博客细节html界面的渲染；其中blog_pk参数为博客编号(pk意思为外键)
-    context = {} # context字典为传入html渲染的内容
     blog = get_object_or_404(Blog, id = blog_pk) # get_object_or_404()在无法取到object的时候返回404界面
+    if not request.COOKIES.get('blog_%s_readed' % blog_pk):
+        blog.readed_num += 1 # 阅读量每次加一
+        blog.save() # 博客保存
+
+    context = {} # context字典为传入html渲染的内容
     context['previous_blog'] = Blog.objects.filter(create_time__gt=blog.create_time).last() # 寻找比当前博客创建时间数值大的最后一篇博客
     context['next_blog'] = Blog.objects.filter(create_time__lt=blog.create_time).first() # 寻找比当前博客创建时间数值小的第一篇博客
     context['blog'] = blog
-    return render(request, 'blog_detail.html', context)
+    # return render(request, 'blog_detail.html', context)
+    response = render(request, 'blog_detail.html', context)
+    response.set_cookie('blog_%s_readed' % blog_pk, 'true') # 设置cookies
+    return response
 
 def blog_list(request): # 博客列表html界面的渲染
     blogs_all_list = Blog.objects.all() # 全部博客列表
