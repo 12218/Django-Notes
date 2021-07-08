@@ -4,7 +4,11 @@ from django.conf import settings
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator # 引入分页器
 from django.db.models import Count # 导入计数方法
+# from .models import Blog, BlogType, ReadNum
 from .models import Blog, BlogType
+from read_statistics.utils import read_statistics_once_read
+# from django.contrib.contenttypes.models import ContentType
+# from read_statistics.models import ReadNum
 # 渲染模板文件
 # Create your views here.
 
@@ -49,9 +53,25 @@ def get_blog_list_common_date(request, blogs_all_list):
 
 def blog_detail(request, blog_pk): # 博客细节html界面的渲染；其中blog_pk参数为博客编号(pk意思为外键)
     blog = get_object_or_404(Blog, id = blog_pk) # get_object_or_404()在无法取到object的时候返回404界面
-    if not request.COOKIES.get('blog_%s_readed' % blog_pk):
-        blog.readed_num += 1 # 阅读量每次加一
-        blog.save() # 博客保存
+    # if not request.COOKIES.get('blog_%s_readed' % blog_pk):
+    #     # blog.readed_num += 1 # 阅读量每次加一
+    #     # blog.save() # 博客保存
+    #     '''if ReadNum.objects.filter(blog = blog).count(): # 如果存在阅读记录，加1
+    #         readnum = ReadNum.objects.get(blog = blog)
+    #     else: # 如果不存在阅读记录
+    #         readnum = ReadNum() # 创建阅读记录
+    #         readnum.blog = blog
+    #     readnum.read_num += 1 # 阅读数量加1
+    #     readnum.save()'''
+    #     ct = ContentType.objects.get_for_model(Blog)
+    #     if ReadNum.objects.filter(content_type = ct, object_id = blog.pk).count(): # 如果存在阅读记录，加1
+    #         readnum = ReadNum.objects.get(content_type = ct, object_id = blog.pk)
+    #     else: # 如果不存在阅读记录
+    #         readnum = ReadNum(content_type = ct, object_id = blog.pk) # 创建阅读记录
+    #     readnum.read_num += 1 # 阅读数量加1
+    #     readnum.save()
+
+    read_cookie_key = read_statistics_once_read(request, blog)
 
     context = {} # context字典为传入html渲染的内容
     context['previous_blog'] = Blog.objects.filter(create_time__gt=blog.create_time).last() # 寻找比当前博客创建时间数值大的最后一篇博客
@@ -59,7 +79,7 @@ def blog_detail(request, blog_pk): # 博客细节html界面的渲染；其中blo
     context['blog'] = blog
     # return render(request, 'blog_detail.html', context)
     response = render(request, 'blog_detail.html', context)
-    response.set_cookie('blog_%s_readed' % blog_pk, 'true') # 设置cookies
+    response.set_cookie(read_cookie_key, 'true') # 设置cookies
     return response
 
 def blog_list(request): # 博客列表html界面的渲染

@@ -40,9 +40,9 @@ active
                                         {{ blog.blog_type }}
                                     </a>
                                 </p>
-                                <p class="blog-readed-num">
+                                <p class="blog-read-num">
                                     <span class="glyphicon glyphicon-eye-open"></span>
-                                    阅读量：{{ blog.readed_num }}
+                                    阅读量：{{ blog.get_read_num }}
                                 </p>
                                 <p>{{ blog.content|striptags|truncatechars:70 }}</p> <!-- 其中冒号后面的内容表示显示字符长度 -->
                             </div>
