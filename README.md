@@ -23,6 +23,7 @@
 |  11  | [博客后台富文本编辑](https://github.com/12218/Django-Notes/blob/main/11--Django笔记--博客后台富文本编辑.md) | 2021.07.03 |
 |  12  | [博客阅读简单计数](https://github.com/12218/Django-Notes/blob/main/12--Django笔记--博客阅读简单计数.md) | 2021.07.04 |
 |  13  | [博客阅读计数优化](https://github.com/12218/Django-Notes/blob/main/13--Django笔记--博客阅读计数优化.md) | 2021.07.08 |
+|  14  | [阅读计数统计和显示](https://github.com/12218/Django-Notes/blob/main/14--Django笔记--阅读计数统计和显示.md) | 2021.07.10 |
 
 ## 3. 运行环境
 
