@@ -44,3 +44,27 @@ def get_seven_days_read_data(content_type):
         dates.append(date.strftime('%m/%d'))
         read_nums.append(result['read_num_sum'] or 0) # 将result中read_num_sum的结果加入到阅读数量数组，如果不存在，则添加0
     return dates, read_nums
+
+# 获取今天热门阅读博客数据
+def get_today_hot_data(content_type):
+    today = timezone.now().date() # 取出今天的日期
+    read_details = ReadDetail.objects.filter(content_type = content_type, date = today).order_by('-read_num') # 由大到小按照read_num排序
+    return read_details[:7] # 限制取前7条数据
+
+# 获取昨天热门阅读博客数据
+def get_yesterday_hot_data(content_type):
+    today = timezone.now().date() # 取出今天的日期
+    yesterday = today - datetime.timedelta(days = 1)
+    read_details = ReadDetail.objects.filter(content_type = content_type, date = yesterday).order_by('-read_num') # 由大到小按照read_num排序
+    return read_details[:7] # 限制取前7条数据
+
+# # 获取过去7天热门阅读博客数据
+# def get_7_days_hot_data(content_type):
+#     today = timezone.now().date() # 取出今天的日期
+#     seven_date = today - datetime.timedelta(days = 7)
+#     read_details = ReadDetail.objects\
+#         .filter(content_type = content_type, date__lt = today, date__gte = seven_date)\
+#         .values('content_type', 'object_id')\
+#         .annotate(read_num_sum = Sum('read_num'))\
+#         .order_by('-read_num_sum')
+#     return read_details[:7]

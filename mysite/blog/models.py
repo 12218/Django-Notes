@@ -3,7 +3,8 @@ from django.db import models
 from django.contrib.auth.models import User # 导入用户模型
 # from ckeditor.fields import RichTextField # 富文本编辑字段
 from ckeditor_uploader.fields import RichTextUploadingField # 可上传文件的富文本编辑字段
-from read_statistics.models import ReadNumExpandMethod
+from read_statistics.models import ReadNumExpandMethod, ReadDetail
+from django.contrib.contenttypes.fields import GenericRelation
 # from django.contrib.contenttypes.models import ContentType
 # from read_statistics.models import ReadNum
 
@@ -20,6 +21,7 @@ class Blog(models.Model, ReadNumExpandMethod):
     blog_type = models.ForeignKey(BlogType, on_delete = models.DO_NOTHING, related_name = 'blog_blog') # BlogType是自己设置的博客分类
     content = RichTextUploadingField() # 设置文章内容，模式为富文本
     author = models.ForeignKey(User, on_delete = models.DO_NOTHING) # 设置作者，作者为外键
+    read_details = GenericRelation(ReadDetail)
     # readed_num = models.IntegerField(default = 0) # 博客阅读次数
     create_time = models.DateTimeField(auto_now_add = True) # 设置创建时间，auto_now_add为“如果新创建一篇文章，将文章时间设为现在时间”
     last_updated_time = models.DateTimeField(auto_now_add = True)

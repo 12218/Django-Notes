@@ -143,3 +143,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 自定义参数
 EACH_PAGE_BLOGS_NUMBER = 7
+
+# 缓存设置
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    }
+}

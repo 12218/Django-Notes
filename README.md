@@ -24,6 +24,7 @@
 |  12  | [博客阅读简单计数](https://github.com/12218/Django-Notes/blob/main/12--Django笔记--博客阅读简单计数.md) | 2021.07.04 |
 |  13  | [博客阅读计数优化](https://github.com/12218/Django-Notes/blob/main/13--Django笔记--博客阅读计数优化.md) | 2021.07.08 |
 |  14  | [阅读计数统计和显示](https://github.com/12218/Django-Notes/blob/main/14--Django笔记--阅读计数统计和显示.md) | 2021.07.10 |
+|  15  | [热门阅读博客排行及缓存提速](https://github.com/12218/Django-Notes/blob/main/15--Django笔记--热门阅读博客排行及缓存提速.md) | 2021.07.11 |
 
 ## 3. 运行环境
 
