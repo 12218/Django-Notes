@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from read_statistics.utils import get_seven_days_read_data, get_today_hot_data, get_yesterday_hot_data # , get_7_days_hot_data
 from django.contrib.contenttypes.models import ContentType
 from blog.models import Blog
@@ -6,6 +6,7 @@ import datetime
 from django.core.cache import cache
 from django.utils import timezone
 from django.db.models import Sum
+from django.contrib import auth
 
 def get_7_days_blogs():
     today = timezone.now().date() # 取出今天的日期
@@ -40,3 +41,15 @@ def home(request):
     context['yesterday_hot_data'] = yesterday_hot_data
     context['hot_blogs_for_7_days'] = hot_blogs_for_7_days
     return render(request, 'home.html', context)
+
+
+def login(request):
+    username = request.POST.get('username', '') # 从request中取出username字段，如果没有则设为空字符串
+    password = request.POST.get('password', '')
+
+    user = auth.authenticate(request, username = username, password = password) # 获取登录信息
+    if user is not None:
+        auth.login(request, user)
+        return redirect('/') # 重定向到首页
+    else:
+        return render(request, 'error.html', {'message': '用户名或密码不正确'}) # 跳转错误页面

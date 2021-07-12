@@ -7,6 +7,7 @@ from django.db.models import Count # 导入计数方法
 # from .models import Blog, BlogType, ReadNum
 from .models import Blog, BlogType
 from read_statistics.utils import read_statistics_once_read
+
 # from django.contrib.contenttypes.models import ContentType
 # from read_statistics.models import ReadNum
 # 渲染模板文件
@@ -77,6 +78,7 @@ def blog_detail(request, blog_pk): # 博客细节html界面的渲染；其中blo
     context['previous_blog'] = Blog.objects.filter(create_time__gt=blog.create_time).last() # 寻找比当前博客创建时间数值大的最后一篇博客
     context['next_blog'] = Blog.objects.filter(create_time__lt=blog.create_time).first() # 寻找比当前博客创建时间数值小的第一篇博客
     context['blog'] = blog
+    context['user'] = request.user
     # return render(request, 'blog_detail.html', context)
     response = render(request, 'blog_detail.html', context)
     response.set_cookie(read_cookie_key, 'true') # 设置cookies
@@ -203,3 +205,5 @@ def blogs_with_date(request, year, month):
     context['page_range'] = page_range
     context['blog_dates'] = Blog.objects.dates('create_time', 'month', order = 'ASC') # 传入博客日期
     return render(request, 'blogs_with_date.html', context)'''
+
+
